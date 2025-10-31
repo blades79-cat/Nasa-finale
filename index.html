@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NASA Space Explorer</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- Animated starfield background -->
+  <div class="stars"></div>
+  <div class="stars stars2"></div>
+  <div class="stars stars3"></div>
+
+  <div class="container">
+    <header class="site-header glass">
+      <img src="img/nasa-worm-logo.png" alt="NASA Logo" class="logo" onerror="this.style.display='none'">
+      <div class="title-wrap">
+        <h1>NASA Space Explorer</h1>
+        <p class="tagline">Discover the universe with Astronomy Picture of the Day</p>
+      </div>
+    </header>
+
+    <section class="controls glass">
+      <label>Start date
+        <input type="date" id="startDate" required>
+      </label>
+      <label>End date
+        <input type="date" id="endDate" required>
+      </label>
+      <button id="fetchBtn" class="btn">Get Space Images</button>
+    </section>
+
+    <section class="fact glass" aria-live="polite">
+      <h2>Did You Know?</h2>
+      <p id="randomFact">Loading a random space fact…</p>
+    </section>
+
+    <div id="status" class="status" aria-live="polite"></div>
+
+    <section id="gallery" class="gallery" aria-label="Astronomy gallery">
+      <div class="placeholder glass">
+        <div class="placeholder-icon">🛰️</div>
+        <p>Select a date range and click <b>Get Space Images</b> to explore the cosmos.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog glass">
+      <button class="modal__close" data-close aria-label="Close">×</button>
+      <div id="modalMedia" class="modal__media"></div>
+      <div class="modal__body">
+        <h3 id="modalTitle"></h3>
+        <p id="modalDate" class="muted"></p>
+        <p id="modalExplanation"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order matters: dateRange first, then app -->
+  <script src="js/dateRange.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
+
